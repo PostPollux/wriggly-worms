@@ -17,12 +17,12 @@ var FoodRes = preload("res://Food/GlowingFood.tscn")
 # var a: int = 2
 # var b: String = "text"
 
-var food_spawn_radius : float = 800
+var food_spawn_radius : float = 4000
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	for i in range(0,500):
+	for i in range(0,5000):
 		
 		add_food_at_random_position()
 
