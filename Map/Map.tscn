@@ -1,7 +1,80 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Map/Map.gd" type="Script" id=1]
-
+[ext_resource path="res://Map/BackgroundTextures/organic_matter_normal.jpg" type="Texture" id=3]
+[ext_resource path="res://NodeSwitcher2D.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Map/BackgroundTextures/organic_matter_diffuse.jpg" type="Texture" id=6]
+[ext_resource path="res://Map/BackgroundTextures/alien_muscle_diffuse2.jpg" type="Texture" id=7]
+[ext_resource path="res://Map/BackgroundTextures/alien_muscle_normal.jpg" type="Texture" id=8]
+[ext_resource path="res://Map/BackgroundTextures/alien_muscle_diffuse.jpg" type="Texture" id=9]
+[ext_resource path="res://Map/BackgroundTextures/coral_diffuse3.jpg" type="Texture" id=10]
+[ext_resource path="res://Map/BackgroundTextures/coral_normal.jpg" type="Texture" id=11]
+[ext_resource path="res://Map/BackgroundTextures/coral_diffuse2.jpg" type="Texture" id=12]
+[ext_resource path="res://Map/BackgroundTextures/coral_diffuse.jpg" type="Texture" id=13]
+[ext_resource path="res://Map/BackgroundTextures/organic_matter_diffuse3.jpg" type="Texture" id=14]
+[ext_resource path="res://Map/BackgroundTextures/organic_matter_diffuse2.jpg" type="Texture" id=15]
 
 [node name="Map" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="MapSwitcher" parent="." instance=ExtResource( 4 )]
+
+[node name="Bg1" type="Sprite" parent="MapSwitcher"]
+visible = false
+modulate = Color( 0.592157, 0.686275, 1, 1 )
+texture = ExtResource( 14 )
+normal_map = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 30000, 30000 )
+
+[node name="Bg2" type="Sprite" parent="MapSwitcher"]
+visible = false
+texture = ExtResource( 6 )
+normal_map = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 30000, 30000 )
+
+[node name="Bg3" type="Sprite" parent="MapSwitcher"]
+visible = false
+modulate = Color( 0.592157, 0.592157, 0.592157, 1 )
+texture = ExtResource( 15 )
+normal_map = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 30000, 30000 )
+
+[node name="Bg4" type="Sprite" parent="MapSwitcher"]
+visible = false
+texture = ExtResource( 7 )
+normal_map = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 30000, 30000 )
+
+[node name="Bg5" type="Sprite" parent="MapSwitcher"]
+visible = false
+texture = ExtResource( 9 )
+normal_map = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 30000, 30000 )
+
+[node name="Bg6" type="Sprite" parent="MapSwitcher"]
+visible = false
+modulate = Color( 0.2, 0.305882, 0.619608, 1 )
+texture = ExtResource( 10 )
+normal_map = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 30000, 30000 )
+
+[node name="Bg7" type="Sprite" parent="MapSwitcher"]
+visible = false
+modulate = Color( 0.505882, 0.654902, 1, 1 )
+texture = ExtResource( 12 )
+normal_map = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 30000, 30000 )
+
+[node name="Bg8" type="Sprite" parent="MapSwitcher"]
+visible = false
+texture = ExtResource( 13 )
+normal_map = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 30000, 30000 )

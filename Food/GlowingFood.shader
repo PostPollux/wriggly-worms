@@ -1,6 +1,7 @@
 shader_type canvas_item;
 render_mode blend_add;
 
+uniform float brightness = 0.5;
 uniform float seed = 0.0;
 uniform float speed = 2.0;
 uniform vec2 amplitude = vec2(2.0,2.0);
@@ -24,7 +25,7 @@ void fragment(){
 	
 	float circle_alpha =  max(alpha_glow_clamped, inner_circle_clamped);
 	float circle_alpha_animated =  circle_alpha - circle_alpha * flicker_strength * abs( cos((TIME + seed) * flicker_speed) );
-	vec3 circle_color = color + 0.1 * inner_circle_clamped;
+	vec3 circle_color = color + brightness * inner_circle_clamped;
 	
 	COLOR = vec4(circle_color, circle_alpha_animated);
 }

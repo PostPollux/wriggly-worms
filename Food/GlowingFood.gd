@@ -69,3 +69,13 @@ func _on_Area2D_area_entered(area: Area2D) -> void:
 
 func _on_Tween_tween_all_completed() -> void:
 	eat()
+
+
+func _on_VisibilityEnabler2D_screen_entered() -> void:
+	self.visible = true
+	#FoodCollider.visible = true
+
+
+func _on_VisibilityEnabler2D_screen_exited() -> void:
+	self.visible = false
+	#FoodCollider.visible = false

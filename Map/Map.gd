@@ -1,11 +1,13 @@
 extends Node2D
 
+
 ### PRELOAD RESOURCES
 var FoodRes = preload("res://Food/GlowingFood.tscn")
 
 ### SIGNALS
 
 ### ONREADY VARIABLES
+onready var MapSwitcher = $MapSwitcher
 
 ### EXPORTED VARIABLES
 
@@ -17,14 +19,23 @@ var FoodRes = preload("res://Food/GlowingFood.tscn")
 # var a: int = 2
 # var b: String = "text"
 
-var food_spawn_radius : float = 4000
+var food_spawn_radius : float = 5000
+
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	for i in range(0,5000):
+	for i in range(0,1000):
 		
 		add_food_at_random_position()
+
+
+
+func _input(ev):
+	if Input.is_key_pressed(KEY_M):
+		MapSwitcher.activate_next()
 
 
 
