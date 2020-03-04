@@ -17,3 +17,7 @@ func _process(delta: float) -> void:
 
 func _on_Button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_Button2_pressed() -> void:
+	GameManager.Game.Map.next_background()

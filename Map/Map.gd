@@ -1,5 +1,6 @@
 extends Node2D
 
+class_name WWMap
 
 ### PRELOAD RESOURCES
 var FoodRes = preload("res://Food/GlowingFood.tscn")
@@ -32,10 +33,9 @@ func _ready() -> void:
 		add_food_at_random_position()
 
 
+func next_background() -> void:
+	MapSwitcher.activate_next()
 
-func _input(ev):
-	if Input.is_key_pressed(KEY_M):
-		MapSwitcher.activate_next()
 
 
 

@@ -3,15 +3,17 @@ extends Node
 
 var points : int = 20
 
+var Game : wriggly_worms
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
 	randomize() # important so that all random functions give different values on each startup.
 	
-	pass # Replace with function body.
+	# set Game varibale
+	Game = get_tree().root.get_node("Game")
+	
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+

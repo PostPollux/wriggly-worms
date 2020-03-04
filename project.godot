@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "NodeSwitcher2D",
 "language": "GDScript",
 "path": "res://NodeSwitcher2D.gd"
+}, {
+"base": "Node2D",
+"class": "WWMap",
+"language": "GDScript",
+"path": "res://Map/Map.gd"
+}, {
+"base": "Node",
+"class": "wriggly_worms",
+"language": "GDScript",
+"path": "res://game.gd"
 } ]
 _global_script_class_icons={
-"NodeSwitcher2D": ""
+"NodeSwitcher2D": "",
+"WWMap": "",
+"wriggly_worms": ""
 }
 
 [application]

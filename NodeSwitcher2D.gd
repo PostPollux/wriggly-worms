@@ -51,6 +51,7 @@ func set_active_node(node : Node2D) -> void:
 
 
 
+
 func activate_next() -> void:
 	if active_node_index + 1 < self.get_child_count():
 		set_active_node_by_id(active_node_index + 1)
