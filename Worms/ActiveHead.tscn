@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Worms/ActiveHead.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://soft-point-light.png" type="Texture" id=3]
+[ext_resource path="res://NodeSwitcher2D.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Worms/HeadDecorations/antlers_512.png" type="Texture" id=5]
+[ext_resource path="res://Worms/HeadDecorations/horns_512.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 47.3071, 48.0488 )
+extents = Vector2( 61.5952, 48.0488 )
 
 [node name="ActiveHead" type="Node2D"]
 script = ExtResource( 1 )
@@ -22,6 +25,7 @@ collision_layer = 2
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 22.4464, 0.440125 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -29,7 +33,26 @@ light_mask = 0
 rotation = 1.5708
 texture = ExtResource( 2 )
 
-[node name="ExtraDeco" type="Sprite" parent="Sprite"]
+[node name="DecoSwitcher" parent="Sprite" instance=ExtResource( 4 )]
+
+[node name="nothing" type="Sprite" parent="Sprite/DecoSwitcher"]
+modulate = Color( 1, 0.968627, 0.698039, 1 )
+position = Vector2( 1.19164, -4.31374e-06 )
+scale = Vector2( 0.387595, 0.387595 )
+
+[node name="Antlers" type="Sprite" parent="Sprite/DecoSwitcher"]
+visible = false
+modulate = Color( 1, 0.968627, 0.698039, 1 )
+position = Vector2( 1.19164, -4.31374e-06 )
+scale = Vector2( 0.387595, 0.387595 )
+texture = ExtResource( 5 )
+
+[node name="Horns" type="Sprite" parent="Sprite/DecoSwitcher"]
+visible = false
+modulate = Color( 0.627451, 0.278431, 0.278431, 1 )
+position = Vector2( 1.19179, 39.6114 )
+scale = Vector2( 0.287879, 0.387595 )
+texture = ExtResource( 6 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

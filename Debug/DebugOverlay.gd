@@ -21,3 +21,7 @@ func _on_Button_pressed() -> void:
 
 func _on_Button2_pressed() -> void:
 	GameManager.Game.Map.next_background()
+
+
+func _on_Button3_pressed() -> void:
+	GameManager.Game.get_node("Worm/ActiveHead/Sprite/DecoSwitcher").activate_next()
