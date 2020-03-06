@@ -34,7 +34,7 @@ func eat_points(points : int) -> void:
 	ScaleTween.interpolate_property(self, "current_scale", current_scale, worm_scale,2.0,Tween.TRANS_CUBIC,Tween.EASE_OUT)
 	ScaleTween.start()
 	
-	var needed_segments = worm_points / 10
+	var needed_segments = (worm_points / 10) / max(worm_scale * 0.5, 1)
 	
 	if needed_segments > current_segment_count:
 		for i in range(0, needed_segments - current_segment_count):
