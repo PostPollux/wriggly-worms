@@ -4,6 +4,7 @@ extends Control
 
 
 onready var FPSLabel : Label =$"ColorRect/Label"
+onready var points : Label = $"points"
 
 
 func _ready() -> void:
@@ -13,6 +14,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	FPSLabel.text = String(Engine.get_frames_per_second())
+	points.text = String(GameManager.Game.get_node("Worm").worm_points)
 
 
 func _on_Button_pressed() -> void:

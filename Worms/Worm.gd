@@ -1,12 +1,17 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a: int = 2
-# var b: String = "text"
+
+var worm_points : float = 10
+var worm_start_segments : int = 10
+var worm_segment_distance : float = 6
+
+var worm_scale : float = 1.0
+
+
 
 var LastSegment 
-var segment_count : int = 0
+var current_segment_count : int = 0
 
 onready var Head = $"ActiveHead"
 
@@ -14,17 +19,30 @@ onready var Head = $"ActiveHead"
 func _ready() -> void:
 	LastSegment = Head
 	
-	for i in range(0, 200):
+	for i in range(0, worm_start_segments):
 		add_segment()
 
 
-
+func eat_points(points : int) -> void:
 	
+	worm_points += points
+	
+	worm_scale = 1 + float(worm_points) / 2000
+	
+	var needed_segments = worm_points / 10
+	
+	if needed_segments > current_segment_count:
+		for i in range(0, needed_segments - current_segment_count):
+			add_segment()
+
+
 
 func add_segment() -> void:
 	var Segment = GameManager.SegmentRes.instance()
 	
-	if segment_count == 0:
+	Segment.Worm = self
+	
+	if current_segment_count == 0:
 		Segment.PreviousSegment = Head
 	
 	Segment.PreviousSegment = LastSegment
@@ -33,6 +51,8 @@ func add_segment() -> void:
 	Segment.get_node("Sprite").z_index = LastSegment.get_node("Sprite").z_index - 1
 	
 	self.add_child(Segment)
+	
+	current_segment_count += 1
 	
 	LastSegment = Segment
 	
