@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Worms/ActiveHead.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Worms/SegmentTextures/segment_blue_256.png" type="Texture" id=2]
 [ext_resource path="res://soft-point-light.png" type="Texture" id=3]
 [ext_resource path="res://NodeSwitcher2D.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Worms/HeadDecorations/antlers_512.png" type="Texture" id=5]
 [ext_resource path="res://Worms/HeadDecorations/horns_512.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 61.5952, 48.0488 )
+extents = Vector2( 61.5952, 38.8515 )
 
 [node name="ActiveHead" type="Node2D"]
 script = ExtResource( 1 )
@@ -22,7 +22,7 @@ energy = 2.0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 3
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 22.4464, 0.440125 )
@@ -31,6 +31,8 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 light_mask = 0
 rotation = 1.5708
+scale = Vector2( 0.25, 0.25 )
+z_index = 4096
 texture = ExtResource( 2 )
 
 [node name="DecoSwitcher" parent="Sprite" instance=ExtResource( 4 )]
@@ -39,19 +41,21 @@ texture = ExtResource( 2 )
 modulate = Color( 1, 0.968627, 0.698039, 1 )
 position = Vector2( 1.19164, -4.31374e-06 )
 scale = Vector2( 0.387595, 0.387595 )
+z_index = 4096
 
 [node name="Antlers" type="Sprite" parent="Sprite/DecoSwitcher"]
 visible = false
 modulate = Color( 1, 0.968627, 0.698039, 1 )
-position = Vector2( 1.19164, -4.31374e-06 )
-scale = Vector2( 0.387595, 0.387595 )
+position = Vector2( 2.62576, 43.0182 )
+scale = Vector2( 1.86037, 1.86037 )
+z_index = 4096
 texture = ExtResource( 5 )
 
 [node name="Horns" type="Sprite" parent="Sprite/DecoSwitcher"]
-visible = false
-modulate = Color( 0.627451, 0.278431, 0.278431, 1 )
-position = Vector2( 1.19179, 39.6114 )
-scale = Vector2( 0.287879, 0.387595 )
+modulate = Color( 0.819608, 0.819608, 0.819608, 1 )
+position = Vector2( 1.19232, 157.62 )
+scale = Vector2( 1.16382, 1.43501 )
+z_index = 4096
 texture = ExtResource( 6 )
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -2,9 +2,6 @@ extends Node2D
 
 class_name WWMap
 
-### PRELOAD RESOURCES
-var FoodRes = preload("res://Food/GlowingFood.tscn")
-
 ### SIGNALS
 
 ### ONREADY VARIABLES
@@ -43,7 +40,7 @@ func next_background() -> void:
 # Distribution is not even. There will be more food in the middle then on the periphery 
 func add_food_at_random_position_radial_simple():
 	
-	var Food = FoodRes.instance()
+	var Food = GameManager.FoodRes.instance()
 	
 	var random_direction_vector : Vector2 = Vector2(randf() * 2 - 1, randf() * 2 - 1).normalized()
 	
@@ -55,7 +52,7 @@ func add_food_at_random_position_radial_simple():
 # Even distribution in a square
 func add_food_at_random_position_square():
 	
-	var Food = FoodRes.instance()
+	var Food = GameManager.FoodRes.instance()
 	
 	Food.position = (self.position - Vector2(map_size / 2, map_size / 2)) + Vector2(randi() % map_size, randi() % map_size )
 	

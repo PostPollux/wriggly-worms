@@ -1,5 +1,9 @@
 extends Node
 
+### PRELOAD RESOURCES
+var FoodRes = preload("res://Food/GlowingFood.tscn")
+var SegmentRes = preload("res://Worms/Segment.tscn")
+
 
 var points : int = 20
 

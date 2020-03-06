@@ -37,7 +37,7 @@ func eat() -> void:
 func _on_Area2D_area_entered(area: Area2D) -> void:
 	
 	# Make sure that the collider does not fire again
-	FoodCollider.monitoring = false
+	FoodCollider.set_deferred("monitoring",false)
 	
 	
 	var SnakeHeadArea2D : Area2D = area
