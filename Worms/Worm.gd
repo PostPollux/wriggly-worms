@@ -12,8 +12,10 @@ var worm_scale : float = 1.0
 
 var LastSegment 
 var current_segment_count : int = 0
+var current_scale : float = 1.0
 
 onready var Head = $"ActiveHead"
+onready var ScaleTween = $"ScaleTween"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,6 +30,9 @@ func eat_points(points : int) -> void:
 	worm_points += points
 	
 	worm_scale = 1 + float(worm_points) / 2000
+	
+	ScaleTween.interpolate_property(self, "current_scale", current_scale, worm_scale,2.0,Tween.TRANS_CUBIC,Tween.EASE_OUT)
+	ScaleTween.start()
 	
 	var needed_segments = worm_points / 10
 	

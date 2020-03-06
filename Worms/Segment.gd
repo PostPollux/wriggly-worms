@@ -16,9 +16,9 @@ func _process(delta: float) -> void:
 
 	if is_instance_valid(PreviousSegment):
 		if distance_correct:
-			self.scale = Vector2(Worm.worm_scale, Worm.worm_scale)
-			self.position = PreviousSegment.position + Worm.worm_segment_distance * Worm.worm_scale * (self.position - PreviousSegment.position ).normalized()
+			self.scale = Vector2(Worm.current_scale, Worm.current_scale)
+			self.position = PreviousSegment.position + Worm.worm_segment_distance * Worm.current_scale * (self.position - PreviousSegment.position ).normalized()
 			self.look_at(PreviousSegment.position)
 		else:
-			if (PreviousSegment.position - self.position).length() > Worm.worm_segment_distance * Worm.worm_scale:
+			if (PreviousSegment.position - self.position).length() > Worm.worm_segment_distance * Worm.current_scale:
 				distance_correct = true

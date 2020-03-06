@@ -24,8 +24,8 @@ func _process(delta: float) -> void:
 	
 	if is_instance_valid(Worm):
 		
-		self.scale = Vector2(Worm.worm_scale, Worm.worm_scale)
-		var cam_zoom : float = 1 + (Worm.worm_scale - 1) * 0.2
+		self.scale = Vector2(Worm.current_scale, Worm.current_scale)
+		var cam_zoom : float = 1 + (Worm.current_scale - 1) * 0.2
 		camera.zoom = Vector2(cam_zoom, cam_zoom)
 		
 		if Input.is_action_pressed("turbo"):
@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 		
 		desired_movement_vector = (get_global_mouse_position() - self.position ).normalized()
 		
-		var calculated_movement_vector : Vector2 = (last_movement_vector + ((default_worm_flexibility / Worm.worm_scale *2) * 0.01  ) * desired_movement_vector).normalized()
+		var calculated_movement_vector : Vector2 = (last_movement_vector + ((default_worm_flexibility / Worm.current_scale *2) * 0.01  ) * desired_movement_vector).normalized()
 		
 		last_movement_vector = calculated_movement_vector
 		
