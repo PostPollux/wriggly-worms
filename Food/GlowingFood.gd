@@ -9,6 +9,7 @@ onready var FoodCollider : Area2D =$"Area2D"
 
 var points : int = 1
 
+
 signal just_eaten
 
 func _ready() -> void:
@@ -32,8 +33,6 @@ func eat() -> void:
 	self.queue_free()
 
 
-
-
 func _on_Area2D_area_entered(area: Area2D) -> void:
 	
 	# Make sure that the collider does not fire again
@@ -50,32 +49,21 @@ func _on_Area2D_area_entered(area: Area2D) -> void:
 		Vector2(0.4, 0.4), 0.3,
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN)
-		
+	
 	FoodTween.follow_property(
 		self, 
 		"global_position", 
 		self.get_position(), 
 		SnakeHeadArea2D, 
 		"global_position", 
-		0.2,
-		Tween.TRANS_LINEAR,
-		Tween.EASE_IN)
+		0.4,
+		Tween.TRANS_CUBIC,
+		Tween.EASE_OUT)
 	
 	# start tween
 	FoodTween.start()
 
 
 
-
-func _on_Tween_tween_all_completed() -> void:
+func _on_Tween_tween_completed(object: Object, key: NodePath) -> void:
 	eat()
-
-
-func _on_VisibilityEnabler2D_screen_entered() -> void:
-	self.visible = true
-	#FoodCollider.visible = true
-
-
-func _on_VisibilityEnabler2D_screen_exited() -> void:
-	self.visible = false
-	#FoodCollider.visible = false

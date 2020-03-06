@@ -19,7 +19,6 @@ shader_param/color = Vector3( 0.621225, 0.962688, 0.978975 )
 radius = 12.6175
 
 [node name="GlowingFood" type="Node2D"]
-scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -28,6 +27,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 1 )
 position = Vector2( 0, 0.513351 )
+scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -37,10 +37,6 @@ collision_mask = 2
 shape = SubResource( 2 )
 
 [node name="Tween" type="Tween" parent="."]
-
-[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-scale = Vector2( 4.20325, 4.20325 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
-[connection signal="screen_entered" from="VisibilityEnabler2D" to="." method="_on_VisibilityEnabler2D_screen_entered"]
-[connection signal="screen_exited" from="VisibilityEnabler2D" to="." method="_on_VisibilityEnabler2D_screen_exited"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

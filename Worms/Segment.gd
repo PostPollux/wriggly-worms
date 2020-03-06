@@ -5,7 +5,7 @@ class_name WormSegment
 var Head
 var PreviousSegment : Node2D
 var distance_correct : bool = false
-var distance : float = 10
+var distance : float = 8
 
 
 # Called when the node enters the scene tree for the first time.
@@ -20,5 +20,5 @@ func _process(delta: float) -> void:
 			self.position = PreviousSegment.position + distance * (self.position - PreviousSegment.position ).normalized()
 			self.look_at(PreviousSegment.position)
 		else:
-			if (PreviousSegment.position - self.position).length() > 10:
+			if (PreviousSegment.position - self.position).length() > distance:
 				distance_correct = true
