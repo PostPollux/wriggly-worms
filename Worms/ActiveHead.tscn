@@ -1,11 +1,12 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Worms/ActiveHead.gd" type="Script" id=1]
-[ext_resource path="res://Worms/SegmentTextures/segment_blue_256.png" type="Texture" id=2]
+[ext_resource path="res://Worms/SegmentTextures/segment_light_blue_256.png" type="Texture" id=2]
 [ext_resource path="res://soft-point-light.png" type="Texture" id=3]
 [ext_resource path="res://NodeSwitcher2D.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Worms/HeadDecorations/antlers_512.png" type="Texture" id=5]
 [ext_resource path="res://Worms/HeadDecorations/horns_512.png" type="Texture" id=6]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18.7167, 18.3712 )

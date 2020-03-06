@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/segment_blue_256.png-ef07bd4d35e38231740c03f24632e271.stex"
+path="res://.import/segment_dark_grey_256.png-69499e3e0e4b4ed126301cc56c2b6888.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Worms/SegmentTextures/segment_blue_256.png"
-dest_files=[ "res://.import/segment_blue_256.png-ef07bd4d35e38231740c03f24632e271.stex" ]
+source_file="res://Worms/SegmentTextures/segment_dark_grey_256.png"
+dest_files=[ "res://.import/segment_dark_grey_256.png-69499e3e0e4b4ed126301cc56c2b6888.stex" ]
 
 [params]
 
