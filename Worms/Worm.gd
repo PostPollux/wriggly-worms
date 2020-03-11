@@ -5,6 +5,7 @@ extends Node2D
 var worm_points : float = 10
 var worm_start_segments : int = 10
 var worm_segment_distance : float = 6
+var worm_3d_rotate_effect : bool = true
 
 var worm_scale : float = 1.0
 
@@ -29,12 +30,12 @@ func eat_points(points : int) -> void:
 	
 	worm_points += points
 	
-	worm_scale = 1 + float(worm_points) / 2000
+	worm_scale = 1 + float(worm_points) / 3500
 	
 	ScaleTween.interpolate_property(self, "current_scale", current_scale, worm_scale,2.0,Tween.TRANS_CUBIC,Tween.EASE_OUT)
 	ScaleTween.start()
 	
-	var needed_segments = (worm_points / 10) / max(worm_scale * 0.5, 1)
+	var needed_segments = (worm_points / 10) / max(worm_scale, 1)
 	
 	if needed_segments > current_segment_count:
 		for i in range(0, needed_segments - current_segment_count):

@@ -7,10 +7,13 @@ var default_speed : float = 3
 var turbo_speed : float = 9
 var acceleration : float = 0.2
 var default_worm_flexibility : float = 5
-var last_movement_vector = Vector2()
-var desired_movement_vector = Vector2()
+var last_movement_vector : Vector2 
+var desired_movement_vector : Vector2 
 
 onready var camera : Camera2D = $"Camera2D"
+
+signal update_next_segment
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,7 +45,8 @@ func _process(delta: float) -> void:
 		
 		self.look_at(self.position + calculated_movement_vector)
 		self.position += calculated_movement_vector * current_speed
-	
+		
+		emit_signal("update_next_segment", last_movement_vector * -1)
 
 
 func _on_Area2D_area_entered(area: Area2D) -> void:
