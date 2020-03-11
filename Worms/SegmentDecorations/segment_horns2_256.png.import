@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/segment_small_horns_256.png-2b6b384954c8d68a8d455c92c939aa9f.stex"
+path="res://.import/segment_horns2_256.png-ae57c24872b6af48543f4af8b8d74abb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Worms/SegmentDecorations/segment_small_horns_256.png"
-dest_files=[ "res://.import/segment_small_horns_256.png-2b6b384954c8d68a8d455c92c939aa9f.stex" ]
+source_file="res://Worms/SegmentDecorations/segment_horns2_256.png"
+dest_files=[ "res://.import/segment_horns2_256.png-ae57c24872b6af48543f4af8b8d74abb.stex" ]
 
 [params]
 
