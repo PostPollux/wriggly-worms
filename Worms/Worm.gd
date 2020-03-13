@@ -2,8 +2,8 @@ extends Node2D
 
 
 
-var worm_points : float = 10
-export var worm_start_segments : int = 10
+var worm_points : float = 0
+export var worm_start_segments : int = 15
 export var worm_segment_distance : float = 6
 export var worm_3d_rotate_effect : bool = true
 
@@ -12,8 +12,11 @@ export var default_speed : float = 3
 export var turbo_speed : float = 9
 export var acceleration : float = 0.2
 export var default_worm_flexibility : float = 5
+export var turbo_drop_interval : float = 0.2
 
 export var camera_offset : Vector2 = Vector2(0,0)
+
+signal just_died
 
 # Control mode
 # player: controlled by you
@@ -35,25 +38,40 @@ func _ready() -> void:
 	current_scale = worm_scale
 	LastSegment = Head
 	
+	if control_mode == "player":
+		GameManager.own_worm = self
+	
 	for i in range(0, worm_start_segments):
 		add_segment()
 
 
 func eat_points(points : int) -> void:
 	
-	if control_mode != "config":
-		worm_points += points
-		
-		worm_scale = 1 + float(worm_points) / 3500
-		
-		ScaleTween.interpolate_property(self, "current_scale", current_scale, worm_scale,2.0,Tween.TRANS_CUBIC,Tween.EASE_OUT)
-		ScaleTween.start()
-		
-		var needed_segments = (worm_points / 10) / max(worm_scale, 1)
-		
-		if needed_segments > current_segment_count:
-			for i in range(0, needed_segments - current_segment_count):
-				add_segment()
+	worm_points += points
+	
+	worm_scale = 1 + float(worm_points) / 3500
+	
+	ScaleTween.interpolate_property(self, "current_scale", current_scale, worm_scale,2.0,Tween.TRANS_CUBIC,Tween.EASE_OUT)
+	ScaleTween.start()
+	
+	var needed_segments = (worm_points / 10) / max(worm_scale, 1)
+	
+	if needed_segments + worm_start_segments > current_segment_count :
+		add_segment()
+
+
+func drop_food_on_turbo() -> void:
+	var food_value : int = int(worm_scale)
+	worm_points -= food_value
+	GameManager.Game.Map.add_food_at_position(food_value, LastSegment.global_position)
+	
+	var needed_segments = (worm_points /10) / max(worm_scale, 1)
+	
+	if current_segment_count > needed_segments + worm_start_segments:
+		var SegmentToDelete = LastSegment
+		LastSegment = LastSegment.PreviousSegment
+		current_segment_count -= 1
+		SegmentToDelete.queue_free()
 
 
 
@@ -79,6 +97,11 @@ func add_segment() -> void:
 	
 	LastSegment = Segment
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+
+
+
+
+
+func die() -> void:
+	emit_signal("just_died")
+	self.queue_free()

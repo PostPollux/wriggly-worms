@@ -3,9 +3,14 @@ extends Node
 ### PRELOAD RESOURCES
 var FoodRes = preload("res://Food/GlowingFood.tscn")
 var SegmentRes = preload("res://Worms/Segment.tscn")
+var WormRes = preload("res://Worms/Worm.tscn")
 
 
-var points : int = 20
+var current_points : int = 20
+var game_running : bool = false
+
+
+var own_worm : Node2D
 
 var Game : wriggly_worms
 
@@ -18,6 +23,9 @@ func _ready() -> void:
 	# set Game varibale
 	Game = get_tree().root.get_node("Game")
 	
+	
 
-
+func _process(delta: float) -> void:
+	if is_instance_valid(own_worm):
+		current_points = own_worm.worm_points
 

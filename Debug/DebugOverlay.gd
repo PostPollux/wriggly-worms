@@ -14,7 +14,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	FPSLabel.text = String(Engine.get_frames_per_second())
-	points.text = String(GameManager.Game.get_node("Worm").worm_points)
+	points.text = String(GameManager.current_points)
 
 
 func _on_Button_pressed() -> void:
@@ -26,4 +26,4 @@ func _on_Button2_pressed() -> void:
 
 
 func _on_Button3_pressed() -> void:
-	GameManager.Game.get_node("Worm/Head/Sprite/DecoSwitcher").activate_next()
+	GameManager.own_worm.get_node("Head/Sprite/DecoSwitcher").activate_next()

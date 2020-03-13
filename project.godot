@@ -15,6 +15,16 @@ _global_script_classes=[ {
 "path": "res://NodeSwitcher2D.gd"
 }, {
 "base": "Node2D",
+"class": "WWConfigWorm",
+"language": "GDScript",
+"path": "res://Worms/ConfigWorm.gd"
+}, {
+"base": "Control",
+"class": "WWMainMenu",
+"language": "GDScript",
+"path": "res://Gui/MainMenu.gd"
+}, {
+"base": "Node2D",
 "class": "WWMap",
 "language": "GDScript",
 "path": "res://Map/Map.gd"
@@ -31,6 +41,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "NodeSwitcher2D": "",
+"WWConfigWorm": "",
+"WWMainMenu": "",
 "WWMap": "",
 "WormSegment": "",
 "wriggly_worms": ""
