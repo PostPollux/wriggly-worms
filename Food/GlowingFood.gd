@@ -8,7 +8,9 @@ onready var FoodTween : Tween = $"Tween"
 onready var FoodCollider : Area2D =$"Area2D"
 
 var points : int = 1
+var food_scale : Vector2 = Vector2(1,1)
 
+var CreationTween : Tween
 
 signal just_eaten
 
@@ -19,18 +21,33 @@ func _ready() -> void:
 	# apply random points, color and seed
 	FoodMaterial.set_shader_param("seed", randf()*100)
 	FoodMaterial.set_shader_param("color", Vector3(randf(), randf(), randf()))
-	points = randi() % 10 +1
 	
-	self.scale = Vector2( 1 + points * 0.1, 1 + points * 0.1)
-	# set visual movement speed
-	FoodMaterial.set_shader_param("speed", 2.0)
+	food_scale = Vector2( 1 + points * 0.1, 1 + points * 0.1)
 	
+	CreationTween = Tween.new()
+	CreationTween.connect("tween_all_completed", self, "remove_creation_tween")
+	# define tweens
+	CreationTween.interpolate_property(
+		self,
+		"scale", 
+		Vector2(0,0), 
+		food_scale, 0.8,
+		Tween.TRANS_SINE,
+		Tween.EASE_OUT)
+	self.add_child(CreationTween)
 	
+	CreationTween.start()
+	
+
+
+func remove_creation_tween():
+	CreationTween.queue_free()
 
 
 func eat() -> void:
 	emit_signal("just_eaten", points)
 	self.queue_free()
+
 
 
 func _on_Area2D_area_entered(area: Area2D) -> void:

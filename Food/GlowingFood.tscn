@@ -7,18 +7,19 @@
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 2 )
-shader_param/brightness = 0.5
+shader_param/brightness = 0.8
 shader_param/seed = 73.5984
 shader_param/speed = 2.0
-shader_param/amplitude = Vector2( 2, 2 )
-shader_param/flicker_strength = 0.1
-shader_param/flicker_speed = 3.0
+shader_param/amplitude = Vector2( 3, 3 )
+shader_param/flicker_strength = 0.15
+shader_param/flicker_speed = 5.0
 shader_param/color = Vector3( 0.621225, 0.962688, 0.978975 )
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 12.6175
 
 [node name="GlowingFood" type="Node2D"]
+scale = Vector2( 1.1, 1.1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
