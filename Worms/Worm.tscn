@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Worms/ActiveHead.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Worms/Head.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Worms/Worm.gd" type="Script" id=3]
 
 [node name="Worm" type="Node2D"]
@@ -8,4 +8,4 @@ script = ExtResource( 3 )
 
 [node name="ScaleTween" type="Tween" parent="."]
 
-[node name="ActiveHead" parent="." instance=ExtResource( 2 )]
+[node name="Head" parent="." instance=ExtResource( 2 )]

@@ -26,4 +26,4 @@ func _on_Button2_pressed() -> void:
 
 
 func _on_Button3_pressed() -> void:
-	GameManager.Game.get_node("Worm/ActiveHead/Sprite/DecoSwitcher").activate_next()
+	GameManager.Game.get_node("Worm/Head/Sprite/DecoSwitcher").activate_next()

@@ -79,3 +79,5 @@ texture = ExtResource( 13 )
 normal_map = ExtResource( 11 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 30000, 30000 )
+
+[node name="AllFood" type="Node2D" parent="."]
