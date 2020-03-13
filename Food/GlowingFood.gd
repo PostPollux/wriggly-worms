@@ -22,7 +22,7 @@ func _ready() -> void:
 	FoodMaterial.set_shader_param("seed", randf()*100)
 	FoodMaterial.set_shader_param("color", Vector3(randf(), randf(), randf()))
 	
-	food_scale = Vector2( 1 + points * 0.1, 1 + points * 0.1)
+	food_scale = Vector2( 1 + points * 0.15, 1 + points * 0.15)
 	
 	CreationTween = Tween.new()
 	CreationTween.connect("tween_all_completed", self, "remove_creation_tween")

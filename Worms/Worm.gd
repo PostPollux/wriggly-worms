@@ -61,7 +61,7 @@ func eat_points(points : int) -> void:
 
 
 func drop_food_on_turbo() -> void:
-	var food_value : int = int(worm_scale)
+	var food_value : int = int(worm_scale * 1.5)
 	worm_points -= food_value
 	GameManager.Game.Map.add_food_at_position(food_value, LastSegment.global_position)
 	

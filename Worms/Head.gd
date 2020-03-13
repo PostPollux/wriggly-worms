@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 				last_movement_vector = calculated_movement_vector
 				
 				self.look_at(self.global_position + calculated_movement_vector)
-				self.position += calculated_movement_vector * current_speed
+				self.position += calculated_movement_vector * current_speed * (60 * delta)
 				
 				emit_signal("update_next_segment", last_movement_vector * -1)
 			

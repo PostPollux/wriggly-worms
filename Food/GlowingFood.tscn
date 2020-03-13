@@ -16,10 +16,9 @@ shader_param/flicker_speed = 5.0
 shader_param/color = Vector3( 0.621225, 0.962688, 0.978975 )
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 12.6175
+radius = 9.20549
 
 [node name="GlowingFood" type="Node2D"]
-scale = Vector2( 1.1, 1.1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -28,7 +27,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 1 )
 position = Vector2( 0, 0.513351 )
-scale = Vector2( 0.8, 0.8 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
