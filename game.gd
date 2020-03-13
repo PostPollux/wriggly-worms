@@ -4,6 +4,7 @@ class_name wriggly_worms
 
 onready var Map : WWMap = $"Map"
 onready var MainMenu : WWMainMenu = $"CanvasLayer/GUI/MainMenu"
+onready var WormConfigMenu : WWWormConfigMenu = $"CanvasLayer/GUI/WormConfigMenu"
 onready var ConfigWorm : WWConfigWorm = $"ConfigWorm"
 
 

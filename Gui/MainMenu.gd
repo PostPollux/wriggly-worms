@@ -27,3 +27,10 @@ func _on_Play_Button_pressed() -> void:
 
 func _on_Exit_Button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_Config_Button_pressed() -> void:
+	GameManager.Game.WormConfigMenu.visible = true
+	GameManager.Game.ConfigWorm.show_config_worm()
+	
+	self.visible = false

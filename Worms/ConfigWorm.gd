@@ -13,7 +13,7 @@ func _ready() -> void:
 	self.remove_child(WormToConfig)
 
 
-func show_worm() -> void:
+func show_config_worm() -> void:
 	self.add_child(WormToConfig)
 	
 

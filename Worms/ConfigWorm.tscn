@@ -9,5 +9,5 @@ script = ExtResource( 1 )
 [node name="Worm" parent="." instance=ExtResource( 2 )]
 worm_start_segments = 50
 worm_scale = 2.0
-default_speed = 1.0
 camera_offset = Vector2( -300, 0 )
+control_mode = "config"
