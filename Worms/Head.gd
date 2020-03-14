@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 				var cam_zoom : float = 1 + (Worm.current_scale - 1) * 0.2
 				camera.zoom = Vector2(cam_zoom, cam_zoom)
 				
-				if Input.is_action_pressed("turbo") and Worm.worm_points > 20:
+				if Input.is_action_pressed("turbo") and Worm.worm_points > 0:
 					drop_time += delta
 					current_speed = min(current_speed + Worm.acceleration, Worm.turbo_speed)
 					if drop_time > Worm.turbo_drop_interval:
