@@ -6,8 +6,12 @@ var Worm : WW_Worm
 var PreviousSegment : Node2D
 var distance_correct : bool = false
 var segment_number : int
+var segment_texture : Texture
+var segment_deco_texture : Texture
+var segment_deco_tint : Color
 
 onready var Decoration : Sprite = $"Sprite/Decoration"
+onready var SegmentSprite : Sprite = $"Sprite"
 
 signal update_next_segment
 
@@ -15,7 +19,11 @@ signal update_next_segment
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	PreviousSegment.connect("update_next_segment", self, "update_segment")
-	
+	Decoration.modulate = segment_deco_tint
+	if segment_deco_texture != null:
+		Decoration.texture = segment_deco_texture
+	if segment_texture != null:
+		SegmentSprite.texture = segment_texture
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -38,6 +46,9 @@ func tint_decoration(color : Color) -> void:
 func set_decoration(texture : Texture) -> void:
 	if is_instance_valid(Decoration):
 		Decoration.texture = texture
+
+func set_segment_texture(texture : Texture) -> void:
+	SegmentSprite.texture = texture
 
 
 

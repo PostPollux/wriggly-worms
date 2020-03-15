@@ -35,6 +35,9 @@ var Segments : Array
 var visual_config : Dictionary = {
 	"HeadDeco" : "none",
 	"SegmentDeco" : null,
+	"Segments" : {
+		0 : null # holds the texture
+	},
 	"colors" : {
 		"HeadDecoColor" : Color(1,1,1,1),
 		"SegmentDecoColor" : Color(1,1,1,1)
@@ -98,6 +101,13 @@ func add_segment() -> void:
 	
 	Segment.Worm = self
 	Segment.segment_number = current_segment_count
+	
+	# apply visual configuration
+	Segment.segment_deco_texture = visual_config["SegmentDeco"]
+	Segment.segment_deco_tint = visual_config.colors["SegmentDecoColor"]
+	
+	if visual_config.Segments.has(current_segment_count % 50):
+		Segment.segment_texture = visual_config.Segments[current_segment_count % 50]
 	
 	if current_segment_count == 0:
 		Segment.PreviousSegment = Head

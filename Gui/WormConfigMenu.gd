@@ -9,6 +9,7 @@ class_name WW_WormConfigMenu
 onready var WWColorPicker : ColorPicker = $"Panel/VBoxContainer/Control/ColorPicker"
 onready var HeadDecoColorizationButton = $"Panel/VBoxContainer/HBoxContainer/HeadDecoColorizationButton"
 onready var SegmentDecoColorizationButton = $"Panel/VBoxContainer/HBoxContainer2/SegmentDecoColorizationButton"
+
 onready var SegmentDecoSwitcher : NodeSwitcher2D = $"SegmentDecoSwitcher"
 
 var ActiveColorizationButton : Button

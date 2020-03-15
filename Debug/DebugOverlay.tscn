@@ -51,23 +51,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button3" type="Button" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = 37.5054
-margin_top = 0.663406
-margin_right = 96.5054
-margin_bottom = 20.6634
-text = "next head deco"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Label" type="Label" parent="."]
 margin_left = 66.0
 margin_right = 110.0
 margin_bottom = 14.0
 text = "points:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="custom print" type="Label" parent="."]
+margin_left = 235.0
+margin_top = 1.0
+margin_right = 449.0
+margin_bottom = 15.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="custom print2" type="Label" parent="."]
+margin_left = 235.569
+margin_top = 19.2016
+margin_right = 449.569
+margin_bottom = 33.2016
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="points" type="Label" parent="."]
 margin_left = 113.666
@@ -78,4 +87,3 @@ __meta__ = {
 }
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
-[connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]

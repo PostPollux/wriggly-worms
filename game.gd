@@ -19,7 +19,10 @@ var MusicArray : Array
 
 var visual_worm_config : Dictionary = {
 	"HeadDeco" : "none",
-	"SegmentDeco" : null,
+	"SegmentDeco" : null, # holds the texture
+	"Segments" : {
+		0 : null # holds the texture
+	},
 	"colors" : {
 		"HeadDecoColor" : Color(1,1,1,1),
 		"SegmentDecoColor" : Color(1,1,1,1)
