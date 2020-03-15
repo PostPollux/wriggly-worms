@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Action Strike.ogg-04ec02da30a71fd4ca4f38cb750be67c.oggstr"
+
+[deps]
+
+source_file="res://Music/Action Strike.ogg"
+dest_files=[ "res://.import/Action Strike.ogg-04ec02da30a71fd4ca4f38cb750be67c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

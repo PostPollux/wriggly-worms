@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Driving Concern.ogg-6e9b36d79c8d410c47a14badb9af0a75.oggstr"
+
+[deps]
+
+source_file="res://Music/Driving Concern.ogg"
+dest_files=[ "res://.import/Driving Concern.ogg-6e9b36d79c8d410c47a14badb9af0a75.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
