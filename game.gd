@@ -10,6 +10,13 @@ onready var MusicPlayer : AudioStreamPlayer = $"MusicPlayer"
 onready var MusicFadeOutTween : Tween = $"MusicPlayer/MusicFadeOutTween"
 onready var MusicFadeInTween : Tween = $"MusicPlayer/MusicFadeInTween"
 
+var Music1 : AudioStream = preload("res://Music/Action Strike.ogg")
+var Music2 : AudioStream = preload("res://Music/Bit Bit Loop.ogg")
+var Music3 : AudioStream = preload("res://Music/Chronos.ogg")
+var Music4 : AudioStream = preload("res://Music/Driving Concern.ogg")
+
+var MusicArray : Array
+
 var visual_worm_config : Dictionary = {
 	"HeadDeco" : "none",
 	"SegmentDeco" : null,
@@ -23,7 +30,16 @@ var visual_worm_config : Dictionary = {
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
+	MusicArray.append(Music1)
+	MusicArray.append(Music2)
+	MusicArray.append(Music3)
+	MusicArray.append(Music4)
 	
+	MusicArray.shuffle()
+	
+	MusicPlayer.stream = MusicArray[0]
+	
+	MusicPlayer.play()
 	
 	pass # Replace with function body.
 
@@ -64,8 +80,22 @@ func back_to_main_menu() -> void:
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+func _process(delta: float) -> void:
+	
+	# Fade in music at the start of a song
+	if MusicPlayer.get_playback_position() < 2:
+		MusicPlayer.volume_db = -20 + MusicPlayer.get_playback_position() * 10 
+	
+	# fade out music at the end of a song
+	if MusicPlayer.get_playback_position() >= MusicPlayer.stream.get_length() - 2 :
+		MusicPlayer.volume_db = -20 + (MusicPlayer.stream.get_length() - MusicPlayer.get_playback_position()) * 10 
+	
+	# switch to a random song when song ends
+	if MusicPlayer.get_playback_position() >= MusicPlayer.stream.get_length() - 0.2 :
+		MusicArray.shuffle()
+		MusicPlayer.playing = false
+		MusicPlayer.stream = MusicArray[0]
+		MusicPlayer.play()
 
 
 
