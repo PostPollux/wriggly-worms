@@ -61,9 +61,21 @@ func _on_TextureButton_mouse_exited() -> void:
 
 
 func _on_SegmentButton_pressed() -> void:
-	for i in range(0,50):
-		GameManager.Game.visual_worm_config.Segments[i] = TextureBox.texture
 	
-	# preview
-	for Segment in GameManager.Game.ConfigWorm.WormToConfig.Segments:
-		Segment.set_segment_texture(TextureBox.texture)
+	if not GameManager.segment_fine_tuning:
+		for i in range(0,49):
+			GameManager.Game.visual_worm_config.Segments[i] = TextureBox.texture
+	
+		# preview
+		for Segment in GameManager.Game.ConfigWorm.WormToConfig.Segments:
+			Segment.set_segment_texture(TextureBox.texture)
+	
+	else:
+		
+		GameManager.Game.visual_worm_config.Segments[GameManager.current_fine_tuning_segment] = TextureBox.texture
+		
+		# preview
+		GameManager.Game.ConfigWorm.WormToConfig.Segments[ GameManager.current_fine_tuning_segment ].set_segment_texture(TextureBox.texture)
+		
+		if GameManager.current_fine_tuning_segment < GameManager.Game.ConfigWorm.WormToConfig.worm_start_segments - 1:
+			GameManager.current_fine_tuning_segment += 1

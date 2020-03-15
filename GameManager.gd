@@ -9,6 +9,9 @@ var WormRes = preload("res://Worms/Worm.tscn")
 var current_points : int = 20
 var game_running : bool = false
 
+var segment_fine_tuning : bool = false
+var current_fine_tuning_segment : int = 0
+
 
 var own_worm : WW_Worm
 

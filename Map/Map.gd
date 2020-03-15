@@ -35,9 +35,9 @@ func generate_initial_food(amount) -> void:
 	for i in range(0, amount):
 		
 		if iterator == 0:
-			add_food_at_random_position_radial_simple()
+			add_food_at_random_position_radial_simple(10)
 		else:
-			add_food_at_random_position_square()
+			add_food_at_random_position_square(10)
 		
 		iterator = (iterator + 1) % 2
 
@@ -50,9 +50,11 @@ func add_food_at_position(points : int, position : Vector2):
 	
 
 # Distribution is not even. There will be more food in the middle then on the periphery 
-func add_food_at_random_position_radial_simple():
+func add_food_at_random_position_radial_simple(points : int):
 	
 	var Food = GameManager.FoodRes.instance()
+	
+	Food.points = points
 	
 	var random_direction_vector : Vector2 = Vector2(randf() * 2 - 1, randf() * 2 - 1).normalized()
 	
@@ -62,9 +64,11 @@ func add_food_at_random_position_radial_simple():
 
 
 # Even distribution in a square
-func add_food_at_random_position_square():
+func add_food_at_random_position_square(points : int):
 	
 	var Food = GameManager.FoodRes.instance()
+	
+	Food.points = points
 	
 	Food.position = (self.position - Vector2(map_size / 2, map_size / 2)) + Vector2(randi() % map_size, randi() % map_size )
 	

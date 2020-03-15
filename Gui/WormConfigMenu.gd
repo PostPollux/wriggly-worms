@@ -14,6 +14,7 @@ onready var SegmentDecoSwitcher : NodeSwitcher2D = $"SegmentDecoSwitcher"
 
 var ActiveColorizationButton : Button
 
+var SegmentPlaceholder : Texture = preload("res://Worms/SegmentTextures/segment_placeholder.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -149,3 +150,21 @@ func _on_ColorPicker_color_changed(color: Color) -> void:
 
 
 
+
+
+func _on_SegmentFineTuningButton_toggled(button_pressed: bool) -> void:
+	GameManager.segment_fine_tuning = button_pressed
+
+
+func _on_ResetLastButton_pressed() -> void:
+	if GameManager.current_fine_tuning_segment > 0:
+		
+		GameManager.Game.ConfigWorm.WormToConfig.Segments[ GameManager.current_fine_tuning_segment].set_segment_texture(SegmentPlaceholder)
+		GameManager.current_fine_tuning_segment -= 1
+
+
+func _on_ResetAllButton_pressed() -> void:
+	
+	for Segment in GameManager.Game.ConfigWorm.WormToConfig.Segments:
+		Segment.set_segment_texture(SegmentPlaceholder)
+	GameManager.current_fine_tuning_segment = 0
