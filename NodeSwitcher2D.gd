@@ -6,9 +6,11 @@ var active_node : Node2D
 var active_node_index : int = 0
 
 
+
 func _ready() -> void:
 	
 	for child in self.get_children():
+		
 		child.visible = false
 		
 	set_active_node_by_id(0)
@@ -50,6 +52,19 @@ func set_active_node(node : Node2D) -> void:
 		iterator += 1
 
 
+func set_active_node_by_name(name : String) -> void:
+	
+	var iterator : int = 0
+	
+	for child in self.get_children():
+		if child.name == name:
+			child.visible = true
+			active_node = child
+			active_node_index = iterator
+		else:
+			child.visible = false
+		
+		iterator += 1
 
 
 func activate_next() -> void:

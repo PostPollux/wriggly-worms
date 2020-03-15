@@ -2,10 +2,20 @@ extends Node
 
 class_name wriggly_worms
 
-onready var Map : WWMap = $"Map"
-onready var MainMenu : WWMainMenu = $"CanvasLayer/GUI/MainMenu"
-onready var WormConfigMenu : WWWormConfigMenu = $"CanvasLayer/GUI/WormConfigMenu"
-onready var ConfigWorm : WWConfigWorm = $"ConfigWorm"
+onready var Map : WW_Map = $"Map"
+onready var MainMenu : WW_MainMenu = $"CanvasLayer/GUI/MainMenu"
+onready var WormConfigMenu : WW_WormConfigMenu = $"CanvasLayer/GUI/WormConfigMenu"
+onready var ConfigWorm : WW_ConfigWorm = $"ConfigWorm"
+
+
+var visual_worm_config : Dictionary = {
+	"HeadDeco" : "none",
+	"SegmentDeco" : null,
+	"colors" : {
+		"HeadDecoColor" : Color(1,1,1,1),
+		"SegmentDecoColor" : Color(1,1,1,1)
+	}
+}
 
 
 # Called when the node enters the scene tree for the first time.

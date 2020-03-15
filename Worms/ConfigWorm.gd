@@ -1,8 +1,8 @@
 extends Node2D
 
-class_name WWConfigWorm
+class_name WW_ConfigWorm
 
-onready var WormToConfig = $"Worm"
+onready var WormToConfig : WW_Worm = $"Worm"
 
 
 

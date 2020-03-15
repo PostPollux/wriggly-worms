@@ -39,7 +39,7 @@ texture = ExtResource( 2 )
 
 [node name="DecoSwitcher" parent="Sprite" instance=ExtResource( 4 )]
 
-[node name="nothing" type="Sprite" parent="Sprite/DecoSwitcher"]
+[node name="none" type="Sprite" parent="Sprite/DecoSwitcher"]
 modulate = Color( 1, 0.968627, 0.698039, 1 )
 position = Vector2( 1.19164, -4.31374e-06 )
 scale = Vector2( 0.387595, 0.387595 )
@@ -47,7 +47,6 @@ z_index = 4096
 
 [node name="Antlers" type="Sprite" parent="Sprite/DecoSwitcher"]
 visible = false
-modulate = Color( 1, 0.968627, 0.698039, 1 )
 position = Vector2( 2.62576, 43.0182 )
 scale = Vector2( 1.86037, 1.86037 )
 z_index = 4096
@@ -55,14 +54,12 @@ texture = ExtResource( 5 )
 
 [node name="Horns" type="Sprite" parent="Sprite/DecoSwitcher"]
 visible = false
-modulate = Color( 0.819608, 0.819608, 0.819608, 1 )
 position = Vector2( 1.19232, 157.62 )
 scale = Vector2( 1.16382, 1.43501 )
 z_index = 4096
 texture = ExtResource( 6 )
 
 [node name="Beard" type="Sprite" parent="Sprite/DecoSwitcher"]
-modulate = Color( 0.862745, 0.862745, 0.862745, 1 )
 position = Vector2( -2.35608, -58.7476 )
 scale = Vector2( 0.678415, 0.563102 )
 z_index = 4096

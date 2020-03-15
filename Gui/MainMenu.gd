@@ -1,6 +1,6 @@
 extends Control
 
-class_name WWMainMenu
+class_name WW_MainMenu
 
 # Declare member variables here. Examples:
 # var a: int = 2
@@ -20,7 +20,8 @@ func _ready() -> void:
 func _on_Play_Button_pressed() -> void:
 	GameManager.game_running = true
 	GameManager.Game.Map.generate_initial_food(1000)
-	GameManager.Game.Map.add_worm_at_random_position()
+	
+	var Worm : WW_Worm = GameManager.Game.Map.add_worm_at_random_position(GameManager.Game.visual_worm_config)
 	
 	self.visible = false
 

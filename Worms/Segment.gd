@@ -1,10 +1,13 @@
 extends Node2D
 
-class_name WormSegment
+class_name WW_WormSegment
 
-var Worm : Node2D
+var Worm : WW_Worm
 var PreviousSegment : Node2D
 var distance_correct : bool = false
+var segment_number : int
+
+onready var Decoration : Sprite = $"Sprite/Decoration"
 
 signal update_next_segment
 
@@ -18,6 +21,24 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
+
+
+func hide_decoration() -> void:
+	if is_instance_valid(Decoration):
+		Decoration.visible = false
+
+func show_decoration() -> void:
+	if is_instance_valid(Decoration):
+		Decoration.visible = true
+
+func tint_decoration(color : Color) -> void:
+	if is_instance_valid(Decoration):
+		Decoration.modulate = color
+
+func set_decoration(texture : Texture) -> void:
+	if is_instance_valid(Decoration):
+		Decoration.texture = texture
+
 
 
 func update_segment(motion_vec_from_prev_segment):

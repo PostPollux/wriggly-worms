@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name WW_WormHead
+
 var Worm : Node2D
 
 var current_speed : float = 0
@@ -12,6 +14,7 @@ var drop_time : float = 0.0
 
 
 onready var camera : Camera2D = $"Camera2D"
+onready var HeadDecoSwitcher : NodeSwitcher2D = $"Sprite/DecoSwitcher"
 
 signal update_next_segment
 

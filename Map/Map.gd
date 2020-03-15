@@ -1,6 +1,6 @@
 extends Node2D
 
-class_name WWMap
+class_name WW_Map
 
 ### SIGNALS
 
@@ -82,12 +82,15 @@ func remove_all_worms() -> void:
 		Worm.queue_free()
 
 
-func add_worm_at_random_position() -> void:
+func add_worm_at_random_position(visual_config : Dictionary) -> WW_Worm:
 	
-	var Worm = GameManager.WormRes.instance()
-	
+	var Worm : WW_Worm = GameManager.WormRes.instance()
 	var random_direction_vector : Vector2 = Vector2(randf() * 2 - 1, randf() * 2 - 1).normalized()
 	
 	Worm.position = self.position + random_direction_vector * (randf() * (map_size / 3))
 	
+	Worm.visual_config = visual_config
+	
 	Worms.add_child(Worm)
+	
+	return Worm

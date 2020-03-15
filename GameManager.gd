@@ -10,7 +10,7 @@ var current_points : int = 20
 var game_running : bool = false
 
 
-var own_worm : Node2D
+var own_worm : WW_Worm
 
 var Game : wriggly_worms
 

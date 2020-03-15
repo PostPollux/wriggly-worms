@@ -1,6 +1,6 @@
 extends Node2D
 
-
+class_name WW_Worm
 
 var worm_points : float = 0
 export var worm_start_segments : int = 15
@@ -30,19 +30,36 @@ var LastSegment
 var current_segment_count : int = 0
 var current_scale : float = 1.0
 
-onready var Head = $"Head"
+var Segments : Array
+
+var visual_config : Dictionary = {
+	"HeadDeco" : "none",
+	"SegmentDeco" : null,
+	"colors" : {
+		"HeadDecoColor" : Color(1,1,1,1),
+		"SegmentDecoColor" : Color(1,1,1,1)
+	}
+}
+
+onready var Head : WW_WormHead = $"Head"
 onready var ScaleTween = $"ScaleTween"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_scale = worm_scale
 	LastSegment = Head
 	
+	# apply visual configuration
+	Head.HeadDecoSwitcher.set_active_node_by_name(visual_config["HeadDeco"])
+	Head.HeadDecoSwitcher.modulate = visual_config.colors["HeadDecoColor"]
+	
 	if control_mode == "player":
 		GameManager.own_worm = self
 	
 	for i in range(0, worm_start_segments):
 		add_segment()
+
 
 
 func eat_points(points : int) -> void:
@@ -71,6 +88,7 @@ func drop_food_on_turbo() -> void:
 		var SegmentToDelete = LastSegment
 		LastSegment = LastSegment.PreviousSegment
 		current_segment_count -= 1
+		Segments.erase(SegmentToDelete)
 		SegmentToDelete.queue_free()
 
 
@@ -79,6 +97,7 @@ func add_segment() -> void:
 	var Segment = GameManager.SegmentRes.instance()
 	
 	Segment.Worm = self
+	Segment.segment_number = current_segment_count
 	
 	if current_segment_count == 0:
 		Segment.PreviousSegment = Head
@@ -92,6 +111,8 @@ func add_segment() -> void:
 	Segment.get_node("Sprite").z_index = LastSegment.get_node("Sprite").z_index - 1
 	
 	self.add_child(Segment)
+	
+	Segments.append(Segment)
 	
 	current_segment_count += 1
 	
