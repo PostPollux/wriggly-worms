@@ -34,7 +34,7 @@ func _on_MusicOnOffButton_mouse_exited() -> void:
 
 func _on_MusicOnOffButton_pressed() -> void:
 	
-	if GameManager.Game.MusicPlayer.playing:
+	if not GameManager.Game.MusicPlayer.stream_paused:
 		GameManager.Game.fade_out_music()
 		MusicOnOffButton.texture_normal = musicOffTexture
 	else:

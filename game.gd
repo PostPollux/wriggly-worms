@@ -56,10 +56,10 @@ func fade_out_music() -> void:
 	MusicFadeOutTween.start()
 
 func _on_MusicFadeOutTween_tween_completed(object: Object, key: NodePath) -> void:
-	MusicPlayer.playing = false
+	MusicPlayer.stream_paused = true
 
 func fade_in_music() -> void:
-	MusicPlayer.playing = true
+	MusicPlayer.stream_paused = false
 	
 	MusicFadeInTween.interpolate_property(
 		MusicPlayer,
