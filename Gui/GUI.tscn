@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Gui/MainMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Gui/WormConfigMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Gui/Icons/musicOn.png" type="Texture" id=3]
+[ext_resource path="res://Gui/GUI.gd" type="Script" id=4]
 
 [node name="GUI" type="Control"]
 anchor_right = 1.0
@@ -11,6 +13,7 @@ margin_top = -0.104828
 margin_right = 1.99561
 margin_bottom = -0.104858
 mouse_filter = 2
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -19,3 +22,22 @@ __meta__ = {
 
 [node name="WormConfigMenu" parent="." instance=ExtResource( 2 )]
 visible = false
+
+[node name="MusicOnOffButton" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -102.571
+margin_top = -87.141
+margin_right = -38.5706
+margin_bottom = -23.141
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="mouse_entered" from="MusicOnOffButton" to="." method="_on_MusicOnOffButton_mouse_entered"]
+[connection signal="mouse_exited" from="MusicOnOffButton" to="." method="_on_MusicOnOffButton_mouse_exited"]
+[connection signal="pressed" from="MusicOnOffButton" to="." method="_on_MusicOnOffButton_pressed"]

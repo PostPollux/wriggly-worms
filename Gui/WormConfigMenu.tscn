@@ -139,6 +139,7 @@ margin_right = 4.0
 margin_bottom = 4.0
 rect_scale = Vector2( 0.75, 0.75 )
 alignment = 1
+edit_alpha = false
 presets_enabled = false
 presets_visible = false
 __meta__ = {
